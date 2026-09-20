@@ -1,15 +1,19 @@
 package org.firstinspires.ftc.teamcode.hardware;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
+import com.qualcomm.robotcore.hardware.Servo;
+
 // TODO: add imports for new components (CRServo, Servo, IMU, etc.)
 
 public class Robot {
-    public DcMotor rightFront, leftFront, rightBack, leftBack;
+    public DcMotor rightFront, leftFront, rightBack, leftBack, intake, lift;
     // TODO: declare new motors here
     // TODO: declare new servos here
     // TODO: declare sensors here
+    public Servo clawL, clawR;
 
     public HardwareMap hw;
 
@@ -27,7 +31,8 @@ public class Robot {
         leftFront  = initMotor("LeftFront", true);
         rightBack  = initMotor("RightBack", false);
         leftBack   = initMotor("LeftBack", true);
-
+        intake = initMotor("Intake", true);
+        lift = initMotor("Slide", true);
         // TODO: init new motors here
 
         leftFront.setDirection(DcMotorSimple.Direction.FORWARD);
@@ -41,6 +46,12 @@ public class Robot {
 
         // Brake mode default
         setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+
+        clawR = hw.servo.get("ClawR");
+        clawL = hw.servo.get("ClawL");
+
+
+
     }
 
     private DcMotor initMotor(String name, boolean forward) {
@@ -48,6 +59,13 @@ public class Robot {
 
         m.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         return m;
+    }
+
+    private DcMotorEx initMotorEx(String name, boolean forward) {
+        DcMotorEx mEx = hw.get(DcMotorEx.class, name);
+
+        mEx.setZeroPowerBehavior(DcMotorEx.ZeroPowerBehavior.BRAKE);
+        return mEx;
     }
 
     public void setZeroPowerBehavior(DcMotor.ZeroPowerBehavior behavior) {
