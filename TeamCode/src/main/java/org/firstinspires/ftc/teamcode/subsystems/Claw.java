@@ -26,18 +26,15 @@ public class Claw {
     // =======================================================
 
     /** Example—replace with real behavior */
-    public void doSomething(double power) {
-        // Example: using a motor
-        // robot.launcher.setPower(power);
-
-        // Or a CRServo
-        // robot.intakeL.setPower(power);
-        // robot.intakeR.setPower(power);
+    public void open() {
+        robot.clawL.setPosition(1);
+        robot.clawR.setPosition(0);
     }
 
     /** Stop everything related to this subsystem */
-    public void stop() {
-         robot.clawL.setPosition(0);
+    public void close() {
+        robot.clawR.setPosition(1);
+        robot.clawL.setPosition(0);
     }
 
     // =======================================================

@@ -3,46 +3,37 @@ package org.firstinspires.ftc.teamcode.subsystems;
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.firstinspires.ftc.teamcode.hardware.Robot;
 
-import com.qualcomm.robotcore.hardware.DcMotorEx;
-
-
 /**
  * Generic subsystem template that only uses hardware inside Robot.java.
  * Copy → rename → customize.
  */
-public class Lift {
+public class Shooter {
 
     protected final Robot robot;
     protected final Telemetry telemetry;
 
-    public Lift(Robot robot, Telemetry telemetry) {
+    public Shooter(Robot robot, Telemetry telemetry) {
         this.robot = robot;
         this.telemetry = telemetry;
 
         // You may configure robot hardware for your subsystem here:
-        //robot.lift.setMode(DcMotorEx.RunMode.);
+        // robot.launcher.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         // robot.intakeL.setDirection(CRServo.Direction.FORWARD);
     }
+    double rpm = 1;
 
     // =======================================================
     //                PUBLIC API ACTION METHODS
     // =======================================================
 
     /** Example—replace with real behavior */
-    public void move(double power) {
-         robot.lift.setPower(power);
-    }
-
-    public void goUp(double power) {
-        robot.lift.setPower(power);
-    }
-    public void goDown(double power){
-        robot.lift.setPower(power);
+    public void shoot() {
+       robot.shooter.setPower(rpm);
     }
 
     /** Stop everything related to this subsystem */
     public void stop() {
-         robot.lift.setPower(0);
+      robot.shooter.setPower(0);
     }
 
     // =======================================================
@@ -50,13 +41,8 @@ public class Lift {
     // =======================================================
 
     /** Example mode switcher */
-    public void resetEncoder() {
-        robot.lift.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
-
-    }
-
     public void runWithoutEncoder() {
-         robot.lift.setMode(DcMotorEx.RunMode.RUN_WITHOUT_ENCODER);
+        // robot.launcher.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
     }
 
     /** Optional telemetry */
