@@ -41,7 +41,7 @@ public class Robot {
         rightFront.setDirection(DcMotorSimple.Direction.REVERSE);
         rightBack.setDirection(DcMotorSimple.Direction.REVERSE);
 
-        // Init Servoes here
+        // Init Servos here
         clawR = hw.servo.get("ClawR");
         clawL = hw.servo.get("ClawL");
 
