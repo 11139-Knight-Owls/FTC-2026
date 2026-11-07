@@ -34,10 +34,10 @@ public class Lift {
     }
 
     public void goUp(double power) {
-        robot.lift.setPower(power);
+        robot.lift.setPower(0.8);
     }
     public void goDown(double power){
-        robot.lift.setPower(power);
+        robot.lift.setPower(-0.8);
     }
 
     /** Stop everything related to this subsystem */

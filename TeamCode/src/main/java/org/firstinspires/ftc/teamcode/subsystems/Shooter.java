@@ -20,7 +20,7 @@ public class Shooter {
         // robot.launcher.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         // robot.intakeL.setDirection(CRServo.Direction.FORWARD);
     }
-    double rpm = 1;
+    double rpm = 2000;
 
     // =======================================================
     //                PUBLIC API ACTION METHODS
@@ -28,7 +28,8 @@ public class Shooter {
 
     /** Example—replace with real behavior */
     public void shoot() {
-       robot.shooter.setPower(rpm);
+
+        robot.shooter.setPower(rpm);
     }
 
     /** Stop everything related to this subsystem */

@@ -21,7 +21,7 @@ public class ZeroServo extends LinearOpMode {
     @Override
     public void runOpMode() {
 
-        zero = hardwareMap.servo.get("zero");
+        zero = hardwareMap.servo.get("Claw");
 
 
         waitForStart();

@@ -51,22 +51,26 @@ public class TeleOp26 extends LinearOpMode {
             // 2. Intake
             if(gamepad1.right_trigger > 0.1) {
                 intake.run(1);
-            }else{
+            } else if(gamepad1.left_trigger > 0.1) {
+                intake.run(-1);
+            } else {
                 intake.stop();
             }
             // 3. Transfer
-            if(gamepad1.left_trigger > 0.1){
+            if(gamepad1.right_bumper) {
                 transfer.run(1);
-            }
-            if(gamepad2.left_trigger < 0.1){
+            } else if(gamepad1.left_bumper) {
+                transfer.run(-1);
+            } else {
                 transfer.stop();
             }
             // 4. Lift
             if(gamepad2.left_stick_y > 0.1){
-                lift.goUp(gamepad2.left_stick_y);
-            }
-            if (gamepad2.left_stick_y < -0.1){
-                lift.goDown(gamepad1.left_stick_y);
+                lift.goUp();
+            } else if (gamepad2.left_stick_y < -0.1){
+                lift.goDown();
+            } else {
+                lift.stop();
             }
             // 5. Claw
             if (gamepad2.dpad_up) {

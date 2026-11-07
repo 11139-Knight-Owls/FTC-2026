@@ -32,9 +32,9 @@ public class Robot {
         rightBack  = initMotor("RightBack", false);
         leftBack   = initMotor("LeftBack", true);
         intake = initMotor("Intake", true);
-        transfer = initMotor("Transfer", true);
+        transfer = initMotor("Transfer", false);
         lift = initMotor("Slide", true);
-        shooter = initMotor("Shooter", true);
+        shooter = initMotor("Shooter", false);
         // TODO: init new motors here
 
         leftFront.setDirection(DcMotorSimple.Direction.FORWARD);
