@@ -37,6 +37,11 @@ public class Claw {
         robot.clawL.setPosition(0);
     }
 
+    public void clawx(double n) {
+        robot.clawR.setPosition(n);
+        robot.clawL.setPosition(n);
+    }
+
     // =======================================================
     //                HELPER FUNCTIONS
     // =======================================================
