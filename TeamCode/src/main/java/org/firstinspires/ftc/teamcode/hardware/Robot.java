@@ -9,7 +9,8 @@ import com.qualcomm.robotcore.hardware.Servo;
 // TODO: add imports for new components (CRServo, Servo, IMU, etc.)
 
 public class Robot {
-    public DcMotor rightFront, leftFront, rightBack, leftBack, intake, transfer, lift, shooter;
+    public DcMotor rightFront, leftFront, rightBack, leftBack, intake, transfer, lift;
+    public DcMotorEx shooter;
     // TODO: declare new motors here
     // TODO: declare new servos here
     // TODO: declare sensors here
@@ -32,15 +33,23 @@ public class Robot {
         rightBack  = initMotor("RightBack", false);
         leftBack   = initMotor("LeftBack", true);
         intake = initMotor("Intake", true);
-        transfer = initMotor("Transfer", false);
+        transfer = initMotor("Transfer", true);
         lift = initMotor("Slide", true);
-        shooter = initMotor("Shooter", false);
+        shooter = initMotorEx("Shooter", true);
         // TODO: init new motors here
 
-        leftFront.setDirection(DcMotorSimple.Direction.FORWARD);
+        leftFront.setDirection(DcMotorSimple.Direction.REVERSE);//switched
         leftBack.setDirection(DcMotorSimple.Direction.FORWARD);
-        rightFront.setDirection(DcMotorSimple.Direction.REVERSE);
+        rightFront.setDirection(DcMotorSimple.Direction.FORWARD); //switched
         rightBack.setDirection(DcMotorSimple.Direction.REVERSE);
+
+        transfer.setDirection(DcMotorSimple.Direction.REVERSE);
+
+        shooter.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        shooter.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        shooter.setDirection(DcMotorSimple.Direction.REVERSE);
+
+
 
         // Init Servos here
         claw = hw.servo.get("Claw");

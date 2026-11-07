@@ -12,9 +12,9 @@ public class Drive {
         this.robot = robot;
     }
 
-    public void driveLoop(double g1rsy, double g1rsx, double g1lsx) {
+    public void driveLoop(double g1rsy, double g1rsx, double g1lsx, double scale) {
         // FTC joystick Y is negative when pushed forward, so invert it here.
-        setMecanum(-g1rsy, g1rsx, g1lsx, 1.0);
+        setMecanum(-g1rsy, g1rsx, g1lsx, scale);
     }
 
     /** Send mecanum-style powers; inputs are raw joystick values */

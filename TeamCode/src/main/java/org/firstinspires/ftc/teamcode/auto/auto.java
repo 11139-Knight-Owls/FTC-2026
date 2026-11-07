@@ -8,15 +8,12 @@ import org.firstinspires.ftc.teamcode.hardware.Robot;
 import org.firstinspires.ftc.teamcode.subsystems.Drive;
 import org.firstinspires.ftc.teamcode.subsystems.Shooter;
 
-/**
- * Simple timed autonomous: move toward the Hive, feed the preloaded balls,
- * then back away. Tune the times and powers on the field for your starting spot.
- */
-@Autonomous(name = "Hive: Shoot and Back Away", group = "Auto")
+// Drive Forward and park Auto
+@Autonomous(name = "park auto", group = "Auto")
 public class auto extends LinearOpMode {
 
     // Starting-point tuning values. These are placeholders; tune with the robot on the field.
-    private static final double APPROACH_SECONDS = 1.2;
+    private static final double APPROACH_SECONDS = 10;
     private static final double SHOOT_SECONDS = 5.0;
     private static final double RETREAT_SECONDS = 0.8;
     private static final double DRIVE_POWER = 0.35;
@@ -44,7 +41,7 @@ public class auto extends LinearOpMode {
             // Spin up, then run the shooter and both ball-feeding motors long enough
             // to empty the preload. Increase SHOOT_SECONDS if balls remain.
             shooter.shoot();
-            sleep(700);
+            sleep(3000);
             if (opModeIsActive()) {
                 robot.intake.setPower(FEEDER_POWER);
                 robot.transfer.setPower(FEEDER_POWER);
