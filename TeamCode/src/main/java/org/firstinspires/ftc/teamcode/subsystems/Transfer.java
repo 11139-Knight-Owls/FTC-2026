@@ -33,6 +33,7 @@ public class Transfer {
 
     /** Stop everything related to this subsystem */
     public void stop() {
+
         robot.transfer.setPower(0);
     }
 

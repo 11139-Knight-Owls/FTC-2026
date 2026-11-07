@@ -35,6 +35,7 @@ public class TeleOp26 extends LinearOpMode {
         robot = new Robot(hardwareMap);
         drive = new Drive(robot, telemetry);
         intake = new Intake(robot, telemetry);
+        transfer = new Transfer(robot, telemetry);
         claw = new Claw(robot, telemetry);
         lift = new Lift(robot, telemetry);
         shooter = new Shooter(robot, telemetry);

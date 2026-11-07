@@ -27,8 +27,8 @@ public class Robot {
         this.hw = hardwareMap;
 
         // Motors (MAKE SURE names match your config!)
-        rightFront = initMotor("RightFront", false);
-        leftFront  = initMotor("LeftFront", true);
+        rightFront = initMotor("RightFront", true); //inversed bc big gears
+        leftFront  = initMotor("LeftFront", false); //inversed bc big gears
         rightBack  = initMotor("RightBack", false);
         leftBack   = initMotor("LeftBack", true);
         intake = initMotor("Intake", true);
