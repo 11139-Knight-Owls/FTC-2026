@@ -47,6 +47,11 @@ public class TeleOp26 extends LinearOpMode {
 
             // 1. Driving
             drive.driveLoop(gamepad1.right_stick_y, gamepad1.right_stick_x, gamepad1.left_stick_x);
+            telemetry.addData("Drive stick Y (right stick up/down)", gamepad1.right_stick_y);
+            telemetry.addData("Wheel powers LF/RF/LB/RB", "%.2f / %.2f / %.2f / %.2f",
+                    robot.leftFront.getPower(), robot.rightFront.getPower(),
+                    robot.leftBack.getPower(), robot.rightBack.getPower());
+            telemetry.update();
 
             // 2. Intake
             if(gamepad1.right_trigger > 0.1) {
@@ -90,3 +95,4 @@ public class TeleOp26 extends LinearOpMode {
         }
     }
 }
+
