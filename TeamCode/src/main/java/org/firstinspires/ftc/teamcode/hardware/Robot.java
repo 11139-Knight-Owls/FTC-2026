@@ -9,11 +9,11 @@ import com.qualcomm.robotcore.hardware.Servo;
 // TODO: add imports for new components (CRServo, Servo, IMU, etc.)
 
 public class Robot {
-    public DcMotor rightFront, leftFront, rightBack, leftBack, intake, lift, shooter;
+    public DcMotor rightFront, leftFront, rightBack, leftBack, intake, transfer, lift, shooter;
     // TODO: declare new motors here
     // TODO: declare new servos here
     // TODO: declare sensors here
-    public Servo clawL, clawR;
+    public Servo claw;
 
     public HardwareMap hw;
 
@@ -32,6 +32,7 @@ public class Robot {
         rightBack  = initMotor("RightBack", false);
         leftBack   = initMotor("LeftBack", true);
         intake = initMotor("Intake", true);
+        transfer = initMotor("Transfer", true);
         lift = initMotor("Slide", true);
         shooter = initMotor("Shooter", true);
         // TODO: init new motors here
@@ -42,8 +43,7 @@ public class Robot {
         rightBack.setDirection(DcMotorSimple.Direction.REVERSE);
 
         // Init Servos here
-        clawR = hw.servo.get("ClawR");
-        clawL = hw.servo.get("ClawL");
+        claw = hw.servo.get("Claw");
 
 
         // TODO: init sensors here

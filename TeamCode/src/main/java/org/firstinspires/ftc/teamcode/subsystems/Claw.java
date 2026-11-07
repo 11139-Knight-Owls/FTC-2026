@@ -27,19 +27,16 @@ public class Claw {
 
     /** Example—replace with real behavior */
     public void open() {
-        robot.clawL.setPosition(1);
-        robot.clawR.setPosition(0);
+        robot.claw.setPosition(1);
     }
 
     /** Stop everything related to this subsystem */
     public void close() {
-        robot.clawR.setPosition(1);
-        robot.clawL.setPosition(0);
+        robot.claw.setPosition(1);
     }
 
     public void clawx(double n) {
-        robot.clawR.setPosition(n);
-        robot.clawL.setPosition(n);
+        robot.claw.setPosition(n);
     }
 
     // =======================================================
